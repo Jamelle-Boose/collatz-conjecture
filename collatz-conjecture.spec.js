@@ -1,4 +1,4 @@
-import { steps } from "./collatz-conjecture"
+const { steps } = require("./collatz-conjecture")
 
 describe("steps()", () => {
   test("zero steps for one", () => {
@@ -27,5 +27,14 @@ describe("steps()", () => {
     expect(() => {
       steps(-15)
     }).toThrow(new Error("Only positive numbers are allowed"))
+  })
+
+  it("returns the number of steps required to reach 1", () => {
+    let expected = 0
+    expect(steps(1)).toEqual(expected)
+  })
+  it("returns the number of steps required to reach 1", () => {
+    let expected = 1
+    expect(steps(2)).toEqual(expected)
   })
 })
